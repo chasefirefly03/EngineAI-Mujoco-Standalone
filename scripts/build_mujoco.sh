@@ -93,6 +93,14 @@ fi
 
 # Builds the project
 build_dir="$mujoco_dir/build"
+# If this tree was copied/moved, CMakeCache may still point at the old source root; drop stale build/.
+if [[ -f "$build_dir/CMakeCache.txt" ]]; then
+  cached_home="$(grep -m1 '^CMAKE_HOME_DIRECTORY:INTERNAL=' "$build_dir/CMakeCache.txt" 2>/dev/null | sed 's/^CMAKE_HOME_DIRECTORY:INTERNAL=//')"
+  if [[ -n "$cached_home" && "$cached_home" != "$mujoco_dir" ]]; then
+    echo "[build_mujoco] CMake 缓存指向其它源码目录，清理并重新配置: $cached_home -> $mujoco_dir"
+    rm -rf "$build_dir"
+  fi
+fi
 mkdir -p "$build_dir" && cd "$build_dir"
 cmake "${cmake_args[@]}" ..
 
