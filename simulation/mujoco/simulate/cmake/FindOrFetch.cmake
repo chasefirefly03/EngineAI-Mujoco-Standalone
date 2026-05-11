@@ -116,7 +116,8 @@ macro(FindOrFetch)
         ${_ARGS_LIBRARY_NAME}
         GIT_REPOSITORY ${_ARGS_GIT_REPO}
         GIT_TAG ${_ARGS_GIT_TAG}
-        GIT_SHALLOW FALSE
+        # Shallow clone: full history is unnecessary and makes GitHub clones very slow.
+        GIT_SHALLOW TRUE
         PATCH_COMMAND ${_ARGS_PATCH_COMMAND}
         UPDATE_DISCONNECTED TRUE
       )

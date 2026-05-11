@@ -20,8 +20,8 @@ usage() {
 Usage: ./scripts/build_mujoco.sh [options]
 
 Options:
-  -m, --mirror-deps        Download MuJoCo dependencies from mirror repositories.
-                           Use this only when GitHub is unreachable.
+  -m, --mirror-deps        Prefetch glfw/lodepng from Gitee mirrors into simulation/mujoco/_deps
+                           (avoids slow/blocked git clone from GitHub during CMake FetchContent).
   -h, --help               Show this help message.
 EOF
 }
@@ -72,6 +72,12 @@ fi
 if ! has_local_mujoco_deps && [ -f "$deps_archive" ]; then
   echo "Extracting local MuJoCo deps from $deps_archive ..."
   tar -xf "$deps_archive" -C "$mujoco_dir"
+fi
+
+if ! has_local_mujoco_deps; then
+  echo "[build_mujoco] 提示: 未检测到 simulation/mujoco/_deps 下的 glfw/lodepng 源码。"
+  echo "        CMake 会通过 FetchContent 从 GitHub 下载，网络慢时会长时间停在 glfw3/lodepng。"
+  echo "        可选: ./scripts/build_mujoco.sh -m（Gitee 镜像预拉取），或放置并解压 $deps_archive。"
 fi
 
 deps_prefix="$root_dir/deps"

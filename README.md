@@ -73,6 +73,7 @@ chmod +x run.sh
 
 ```bash
 ./scripts/build_mujoco.sh
+./scripts/build_mujoco.sh -m  # 假如上一个指令卡住不动，使用这个。使用国内源拉取依赖
 ```
 
 - CMake 会优先使用本包内 `deps/engineai_robotics_*`，不依赖 `/opt` 占位库。

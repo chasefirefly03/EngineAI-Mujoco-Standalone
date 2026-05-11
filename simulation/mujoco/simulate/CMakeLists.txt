@@ -90,6 +90,7 @@ if(NOT TARGET lodepng)
       lodepng
       GIT_REPOSITORY https://github.com/lvandeve/lodepng.git
       GIT_TAG ${MUJOCO_DEP_VERSION_lodepng}
+      GIT_SHALLOW TRUE
     )
 
     FetchContent_GetProperties(lodepng)
