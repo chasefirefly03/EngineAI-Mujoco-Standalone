@@ -1,0 +1,7 @@
+# Build directories
+build/*
+!build/.gitkeep
+
+# VSCode directory
+.vscode/
+.vscode

@@ -1,0 +1,45 @@
+# visualization
+
+PyQt6-based visualization and debugging tools for the virtual gamepad workflow. The current toolchain provides:
+
+- LCM connection management
+- a virtual gamepad publisher
+- a lightweight message diagnostic script
+
+## Dependencies
+
+- Python 3.7+
+- PyQt6
+- lcm
+
+To install the required dependencies, run the following command:
+```bash
+pip3 install -r requirements.txt
+```
+
+## Usage
+
+From this directory:
+
+```bash
+python3 virtual_gamepad.py
+```
+
+Or from the SDK repository root:
+
+```bash
+python3 tools/virtual_gamepad/virtual_gamepad.py
+```
+
+Available widgets/components:
+
+1. `LcmManagerWidget`: connect and disconnect from the target LCM URL.
+2. `VirtualGamepadWidget`: publish virtual gamepad messages for debugging.
+3. `diagnose_gamepad.py`: basic LCM/message diagnostics for the virtual gamepad channel.
+
+## License
+
+This directory is licensed under **GNU General Public License v3.0 or later** (`GPL-3.0-or-later`).
+See `LICENSE` for the full license text.
+
+This subdirectory-specific license applies to the virtual gamepad tool itself. Other parts of the repository remain under the repository root license (`LICENSE.txt`) unless explicitly stated otherwise.

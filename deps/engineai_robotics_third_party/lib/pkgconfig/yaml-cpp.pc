@@ -1,0 +1,11 @@
+prefix=/opt/engineai_robotics_third_party
+exec_prefix=${prefix}
+includedir=/opt/engineai_robotics_third_party/include
+libdir=/opt/engineai_robotics_third_party/lib
+
+Name: Yaml-cpp
+Description: A YAML parser and emitter for C++
+Version: 0.8.0
+Requires:
+Libs: -L${libdir} -lyaml-cpp
+Cflags: -I${includedir}

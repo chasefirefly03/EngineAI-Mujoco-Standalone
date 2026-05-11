@@ -1,0 +1,11 @@
+prefix=/home/ubuntu/workspace/isaac/t800/engineai_robotics_native_sdk/engineai_robotics_native_sdk/deps/vendor_fmt
+exec_prefix=/home/ubuntu/workspace/isaac/t800/engineai_robotics_native_sdk/engineai_robotics_native_sdk/deps/vendor_fmt
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: fmt
+Description: A modern formatting library
+Version: 11.0.2
+Libs: -L${libdir} -lfmt
+Cflags: -I${includedir}
+
