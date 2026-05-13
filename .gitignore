@@ -4,4 +4,5 @@ build/*
 
 # VSCode directory
 .vscode/
-.vscode
+
+backup/
